@@ -75,4 +75,6 @@ We didn't learn our lesson so this is one half of the flag: IBOH24{AD_PWN3d_
 
 Combining this with the previously obtained part of the flag, I was able to compile the complete flag for the CTF challenge:
 
-**Final Flag:** **IBOH24{AD\_PWN3d\_L1ke\_OscP\_@gAiN}**
+### Flag
+
+**IBOH24{AD\_PWN3d\_L1ke\_OscP\_@gAiN}**

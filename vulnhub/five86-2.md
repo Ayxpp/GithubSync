@@ -2,7 +2,7 @@
 
 To begin the enumeration process, I ran a comprehensive Nmap scan to identify the open ports and services on the target machine:
 
-<figure><img src="../.gitbook/assets/image (12).png" alt="" width="527"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1).png" alt="" width="527"><figcaption></figcaption></figure>
 
 **Open Ports:**
 
@@ -11,7 +11,7 @@ To begin the enumeration process, I ran a comprehensive Nmap scan to identify th
 
 To make interacting with the target machine more convenient, I added a reference to the target’s IP address in the `/etc/hosts` file. This allows me to use the hostname `five86-2` instead of typing the IP address every time.
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
 After identifying that the target was running a WordPress site, I performed a directory brute-force scan using `dirb` to uncover hidden directories and files. This would help in finding potential entry points for exploitation:
 
@@ -26,7 +26,7 @@ The scan revealed several interesting directories and files related to the WordP
 * `/wp-content/`
 * `/wp-includes/`
 
-<figure><img src="../.gitbook/assets/image (14).png" alt="" width="260"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1).png" alt="" width="260"><figcaption></figcaption></figure>
 
 After identifying the WordPress login page (`/wp-login.php`), I decided to attempt logging in using common default credentials. I tried several combinations, including:
 
@@ -59,7 +59,7 @@ During the `wpscan` process, I successfully enumerated several usernames by anal
 \
 
 
-<figure><img src="../.gitbook/assets/image (15).png" alt="" width="487"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1).png" alt="" width="487"><figcaption></figcaption></figure>
 
 The attack successfully revealed the passwords for two accounts:
 

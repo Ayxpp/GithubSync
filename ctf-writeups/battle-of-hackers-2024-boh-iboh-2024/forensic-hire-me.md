@@ -1,6 +1,6 @@
 # Forensic : Hire Me
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 After extracting the contents from the provided archive, I identified two important directories: `loot` and `recon`. Each of these folders likely contains specific artifacts or information essential for further forensic analysis.
 
@@ -10,13 +10,13 @@ Upon extracting the contents, I found two key directories: **loot** and **recon*
 
 * **Groups.xml**: This file appears to contain information related to groups within the target system. This could include details about user group memberships, permissions, or roles. The data in this file can help determine which accounts have elevated privileges or might have been targeted during the attack.
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### recon Directory <a href="#aee2" id="aee2"></a>
 
 This folder contains multiple JSON files, each labeled with timestamps (likely indicating the time of the reconnaissance) and names corresponding to different system elements. Here’s a breakdown of the files:
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 During the investigation of the **Groups.xml** file extracted from the target environment, I identified an account named **rgraham**. The file contained critical user details, such as the account properties and an encrypted password field labeled `cpassword`.
 
@@ -28,13 +28,13 @@ During the investigation of the **Groups.xml** file extracted from the target en
 
 Using `gpp-decrypt`, I successfully decrypted the password to "**L1ke\_OscP\_@gAiN}**" and identified it as part of a flag.
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Continuing Forensic Analysis
 
 After decrypting the `Groups.xml` file and obtaining the second part of the flag, I moved on to inspect the files in the `recon` folder. The folder contained multiple JSON files, and initially, using `cat` to read them made the output difficult to interpret.
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 To improve readability and make the contents more structured, I utilized the `jq` command. This tool formatted the JSON data into a more human-readable format, making it easier to analyze the information.
 
@@ -46,11 +46,11 @@ jq . 20240815030319_computers.json
 
 This gave me a nicely formatted output of the JSON structure, which made it simpler to parse through the data and identify relevant pieces of information.
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 I examined the files in the `recon` folder for any unusual content. Most files were unremarkable, but I found some strange text in `20240815030319_users.json`.’
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```xml
 "description": "VwBlACAAZABpAGQAbgAnAHQAIABsAGUAYQByAG4AIABvAHUAcgAgAGwAZQBzAHMAbwBuACAAcwBvACAAdABoAGkAcwAgAGkAcwAgAG8AbgBlACAAaABhAGwAZgAgAG8AZgAgAHQAaABlACAAZgBsAGEAZwA6ACAASQBCAE8ASAAyADQAewBBAEQAXwBQAFcATgAzAGQAXwA=",                                                                                                                                                    
@@ -71,7 +71,7 @@ The decoded output revealed the following text:
 We didn't learn our lesson so this is one half of the flag: IBOH24{AD_PWN3d_
 ```
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 Combining this with the previously obtained part of the flag, I was able to compile the complete flag for the CTF challenge:
 

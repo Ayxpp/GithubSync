@@ -11,7 +11,7 @@
 ## 📦 Hack The Box&#x20;
 
 * [Linux](hack-the-box/linux/README.md)
-  * [Sea](hack-the-box/linux/sea.md)
+  * [Cicada](hack-the-box/linux/cicada.md)
 * [Windows](hack-the-box/windows/README.md)
   * [Cicada](hack-the-box/windows/cicada.md)
 

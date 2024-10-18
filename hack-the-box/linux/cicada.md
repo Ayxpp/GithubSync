@@ -1,4 +1,4 @@
-# Sea
+# Cicada
 
 <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
@@ -105,7 +105,43 @@ Enumerated the shares with the new user but found nothing, so I tried to get a s
 evil-winrm -i 10.10.11.35  -u 'emily.oscars' -p 'Q!3@Lp#M6b*7t*Vt'
 ```
 
-And I successfully obtained a shell.
+Successfully obtained a shell.
 
 <figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+
+Searched for the user flag in several directories and finally found it in `Desktop/user.txt`.
+
+<figure><img src="../../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
+
+### PrivEsc
+
+Ran `whoami /priv` to check the user's privileges
+
+<figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
+
+With this, I realized that ‘SeBackupPrivilege’ can be used to gain read access to any file, including `root.txt`.
+
+I did some more research and found a PowerShell script to access the `root.txt` file
+
+{% embed url="https://github.com/Hackplayers/PsCabesha-tools/blob/master/Privesc/Acl-FullControl.ps1?source=post_page-----83ddcc0db5c7--------------------------------" %}
+
+We start with transfer the script to target computer with our python server running and following command.
+
+<figure><img src="../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
+
+Now, I ran the script using the following command to get access to the `root.txt` file
+
+```
+Acl-FullControl -user cicada\emily.oscars -path C:\users\administrator\desktop
+```
+
+<figure><img src="../../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
+
+Now, I can view the contents of `root.txt`!
+
+<figure><img src="../../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
 

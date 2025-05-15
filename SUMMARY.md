@@ -11,14 +11,10 @@
 ## 📦 Hack The Box&#x20;
 
 * [Linux](hack-the-box/linux/README.md)
-  * [Sea](hack-the-box/linux/sea.md)
+  * [UnderPass](hack-the-box/linux/underpass.md)
 * [Windows](hack-the-box/windows/README.md)
   * [Cicada](hack-the-box/windows/cicada.md)
 
 ## 💢 VulnHub
 
 * [Five86:2](vulnhub/five86-2.md)
-
-## 🖨️ Intern
-
-* [SQLi Practice](intern/sqli-practice.md)

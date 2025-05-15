@@ -2,7 +2,7 @@
 
 To begin the enumeration process, I ran a comprehensive Nmap scan to identify the open ports and services on the target machine:
 
-<figure><img src="../.gitbook/assets/image (12) (1).png" alt="" width="527"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1) (1).png" alt="" width="527"><figcaption></figcaption></figure>
 
 **Open Ports:**
 

@@ -12,6 +12,7 @@
 
 * [Linux](hack-the-box/linux/README.md)
   * [UnderPass](hack-the-box/linux/underpass.md)
+  * [EscapeTwo](hack-the-box/linux/escapetwo.md)
 * [Windows](hack-the-box/windows/README.md)
   * [Cicada](hack-the-box/windows/cicada.md)
 

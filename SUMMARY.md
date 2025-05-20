@@ -19,3 +19,7 @@
 ## 💢 VulnHub
 
 * [Five86:2](vulnhub/five86-2.md)
+
+## Practice
+
+* [Century - Under The Wire](practice/century-under-the-wire.md)

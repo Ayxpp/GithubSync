@@ -34,6 +34,8 @@ This level is about working with folders that have spaces in their names. Window
 
 <figure><img src="../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
 
+Password for level 5 is: `15768`
+
 ### Century 5
 
 Let's start by retrieving the file from the Desktop and verifying the domain.

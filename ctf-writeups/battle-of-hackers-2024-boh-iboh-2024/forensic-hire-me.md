@@ -1,6 +1,6 @@
 # Forensic : Hire Me
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 After extracting the contents from the provided archive, I identified two important directories: `loot` and `recon`. Each of these folders likely contains specific artifacts or information essential for further forensic analysis.
 
@@ -10,7 +10,7 @@ Upon extracting the contents, I found two key directories: **loot** and **recon*
 
 * **Groups.xml**: This file appears to contain information related to groups within the target system. This could include details about user group memberships, permissions, or roles. The data in this file can help determine which accounts have elevated privileges or might have been targeted during the attack.
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### recon Directory <a href="#aee2" id="aee2"></a>
 

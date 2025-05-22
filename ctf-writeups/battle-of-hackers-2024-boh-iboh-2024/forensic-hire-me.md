@@ -1,6 +1,6 @@
 # Forensic : Hire Me
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 After extracting the contents from the provided archive, I identified two important directories: `loot` and `recon`. Each of these folders likely contains specific artifacts or information essential for further forensic analysis.
 

@@ -14,7 +14,7 @@ Start with Nmap Scan
 nmap -Pn -A -p- 10.10.11.35
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This seems to be an Active Directory box.
 
@@ -158,7 +158,7 @@ reg save HKLM\SAM C:\Users\emily.oscar.CICADA\Videos\sam
 reg save HKLM\SYSTEM C:\Users\emily.oscar.CICADA\Videos\system
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Download the files to your local machine, then use `pypykatz` to extract the hashes.
 

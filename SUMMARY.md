@@ -15,6 +15,7 @@
 * [Windows](hack-the-box/windows/README.md)
   * [Cicada](hack-the-box/windows/cicada.md)
   * [EscapeTwo](hack-the-box/windows/escapetwo.md)
+  * [Fluffy](hack-the-box/windows/fluffy.md)
 
 ## 💢 VulnHub
 

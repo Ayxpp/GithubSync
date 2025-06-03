@@ -18,11 +18,11 @@ The Nmap scan finished, revealing two open ports: SSH (port 22) for potential re
 
 I investigated port 80 and found it running an Apache web server, displaying only the default Ubuntu welcome page.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Next, I conducted a UDP scan and identified an open SNMP service running on port 161, indicating potential for further enumeration.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### SNMP Walk&#x20;
 

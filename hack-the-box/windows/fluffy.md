@@ -1,6 +1,6 @@
 # Fluffy
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Enumeration Phase
 
@@ -246,6 +246,10 @@ INFO: Done in 00M 17S
 20250603144707_computers.json   20250603144707_domains.json  20250603144707_groups.json  20250603144707_users.json
 20250603144707_containers.json  20250603144707_gpos.json     20250603144707_ous.json
 ```
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Modify Group Membership
 
